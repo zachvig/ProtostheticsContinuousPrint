@@ -360,7 +360,7 @@ class ContinuousprintPlugin(octoprint.plugin.SettingsPlugin,
 				# version check: github repository
 				type="github_release",
 				user="zachvig",
-				repo="continuousprint",
+				repo="protostheticscontinuousprint",
 				current=self._plugin_version,
 				stable_branch=dict(
 				    name="Stable", branch="master", comittish=["master"]
@@ -369,16 +369,16 @@ class ContinuousprintPlugin(octoprint.plugin.SettingsPlugin,
 				    dict(
 					name="Release Candidate",
 					branch="rc",
-					comittish=["rc", "master"],
+					comittish=["rc", "main"],
 				    )
 				],
 				# update method: pip
-				pip="https://github.com/zachvig/continuousprint/archive/{target_version}.zip"
+				pip="https://github.com/zachvig/protostheticscontinuousprint/archive/{target_version}.zip"
 			)
 		)
 
 
-__plugin_name__ = "Continuous Print"
+__plugin_name__ = "Protosthetics Continuous Print"
 __plugin_pythoncompat__ = ">=2.7,<4" # python 2 and 3
 
 def __plugin_load__():
