@@ -1,0 +1,28 @@
+<button class="btn btn-primary pull-right" data-bind="click: startQueue, visible: printerState.isOperational() && loginState.isUser() && !(is_paused()) && !(printerState.isPrinting() || printerState.isPaused())" title="Start printing">
+	<i class="fa fa-play"></i>&nbsp;&nbsp;{{ _('Print Next') }}
+</button>
+<button class="btn btn-primary pull-right" disabled data-bind="click: startQueue, visible: (printerState.isPrinting() || printerState.isPaused())" title="Running">
+	<i class="fa fa-spinner fa-spin"></i>&nbsp;&nbsp;{{ _('Already Printing') }}
+</button>
+<button class="btn btn-primary pull-right" data-bind="click: resumeQueue, visible: is_paused()" title="Resume Queue">
+	<i class="fa fa-play"></i>&nbsp;&nbsp;{{ _('Print Next') }}
+</button>
+
+
+<h3>Continuous Print Queue</h3>
+
+<form class="form-horizontal">
+    <p>Please select the files from the list on the right by pressing the "Q" button.  The queue will print from top to bottom.  You can change the order of the prints by pressing the up and down chevrons in the queue.</p>
+    <div class="row-fluid">
+		
+		<h4>Print Queue</h4>
+		<div style="max-height:600px; overflow-y:scroll">
+		<div id="queue_list"></div>
+		<div id="print_history"></div>
+		</div>
+		
+	</div>
+    <br/>
+    
+    <br/>
+</form>
