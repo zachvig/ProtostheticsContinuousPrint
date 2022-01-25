@@ -6,7 +6,7 @@
  */
 
 $(function() {
-	function ContinuousPrintViewModel(parameters) {
+	function ProtostheticsContinuousPrintViewModel(parameters) {
 		var self = this;
 		self.params = parameters;
 		self.printerState = parameters[0];
@@ -43,7 +43,7 @@ $(function() {
 		self.loadQueue = function() {
             $('#queue_list').html("");
 			$.ajax({
-				url: "plugin/continuousprint/queue",
+				url: "plugin/ProtostheticsContinuousPrint/queue",
 				type: "GET",
 				dataType: "json",
 				headers: {
@@ -103,7 +103,7 @@ $(function() {
             self.loadPrintHistory = function(items){
                 $('#print_history').html("");
                 $.ajax({
-				url: "plugin/continuousprint/print_history",
+				url: "plugin/ProtostheticsContinuousPrint/print_history",
 				type: "GET",
 				dataType: "json",
 				headers: {
@@ -235,7 +235,7 @@ $(function() {
                       
 	    self.checkLooped = function(){
             $.ajax({
-				url: "plugin/continuousprint/looped",
+				url: "plugin/ProtostheticsContinuousPrint/looped",
 				type: "GET",
 				dataType: "text",
 				headers: {"X-Api-Key":UI_API_KEY},
@@ -318,7 +318,7 @@ $(function() {
 		self.addToQueue = function(data) {
             self.reloadQueue(data,"ADD");
 			$.ajax({
-				url: "plugin/continuousprint/addqueue",
+				url: "plugin/ProtostheticsContinuousPrint/addqueue",
 				type: "POST",
 				dataType: "text",
 				headers: {
@@ -337,7 +337,7 @@ $(function() {
 		self.moveUp = function(data) {
             self.reloadQueue(data,"UP");
 			$.ajax({
-				url: "plugin/continuousprint/queueup?index=" + data,
+				url: "plugin/ProtostheticsContinuousPrint/queueup?index=" + data,
 				type: "GET",
 				dataType: "json",
 				headers: {"X-Api-Key":UI_API_KEY},
@@ -350,7 +350,7 @@ $(function() {
 		}
         self.changecount = function(data,ncount){
             $.ajax({
-				url: "plugin/continuousprint/change?count=" + ncount+"&index="+data,
+				url: "plugin/ProtostheticsContinuousPrint/change?count=" + ncount+"&index="+data,
 				type: "GET",
 				dataType: "json",
 				headers: {"X-Api-Key":UI_API_KEY},
@@ -366,7 +366,7 @@ $(function() {
 		self.moveDown = function(data) {
             self.reloadQueue(data,"DOWN");
 			$.ajax({
-				url: "plugin/continuousprint/queuedown?index=" + data,
+				url: "plugin/ProtostheticsContinuousPrint/queuedown?index=" + data,
 				type: "GET",
 				dataType: "json",
 				headers: {"X-Api-Key":UI_API_KEY},
@@ -381,7 +381,7 @@ $(function() {
 		self.removeFromQueue = function(data) {
             self.reloadQueue(data,"SUB");
 			$.ajax({
-				url: "plugin/continuousprint/removequeue?index=" + data,
+				url: "plugin/ProtostheticsContinuousPrint/removequeue?index=" + data,
 				type: "DELETE",
 				dataType: "text",
 				headers: {
@@ -399,7 +399,7 @@ $(function() {
 		self.startQueue = function() {
 			self.is_paused(false);
 			$.ajax({
-				url: "plugin/continuousprint/startqueue",
+				url: "plugin/ProtostheticsContinuousPrint/startqueue",
 				type: "GET",
 				dataType: "json",
 				headers: {
@@ -412,7 +412,7 @@ $(function() {
         self.loop = function() {
             self.is_looped(true);
 			$.ajax({
-				url: "plugin/continuousprint/loop",
+				url: "plugin/ProtostheticsContinuousPrint/loop",
 				type: "GET",
 				dataType: "json",
 				headers: {
@@ -424,7 +424,7 @@ $(function() {
         self.unloop = function() {
             self.is_looped(false);
 			$.ajax({
-				url: "plugin/continuousprint/unloop",
+				url: "plugin/ProtostheticsContinuousPrint/unloop",
 				type: "GET",
 				dataType: "json",
 				headers: {
@@ -437,7 +437,7 @@ $(function() {
 		self.resumeQueue = function() {
 			self.is_paused(false)
 			$.ajax({
-				url: "plugin/continuousprint/resumequeue",
+				url: "plugin/ProtostheticsContinuousPrint/resumequeue",
 				type: "GET",
 				dataType: "json",
 				headers: {
@@ -448,7 +448,7 @@ $(function() {
 		}
 
 		self.onDataUpdaterPluginMessage = function(plugin, data) {
-			if (plugin != "continuousprint") return;
+			if (plugin != "ProtostheticsContinuousPrint") return;
 
 			var theme = 'info';
 			switch(data["type"]) {
@@ -477,7 +477,7 @@ $(function() {
 			
 			if (data.msg != "") {
 				new PNotify({
-					title: 'Continuous Print',
+					title: 'Protosthetics Continuous Print',
 					text: data.msg,
 					type: theme,
 					hide: true,
@@ -510,7 +510,7 @@ $(function() {
 	// information to the global variable OCTOPRINT_VIEWMODELS
 	OCTOPRINT_VIEWMODELS.push([
 		// This is the constructor to call for instantiating the plugin
-		ContinuousPrintViewModel,
+		ProtostheticsContinuousPrintViewModel,
 
 		// This is a list of dependencies to inject into the plugin, the order which you request
 		// here is the order in which the dependencies will be injected into your view model upon

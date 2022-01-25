@@ -34,7 +34,7 @@ class ContinuousprintPlugin(octoprint.plugin.SettingsPlugin,
 
 	##~~ StartupPlugin mixin
 	def on_after_startup(self):
-		self._logger.info("Continuous Print Plugin started")
+		self._logger.info("Protosthetics Continuous Print started")
 		self._settings.save()
 	
 	
@@ -336,15 +336,15 @@ class ContinuousprintPlugin(octoprint.plugin.SettingsPlugin,
 		)
 	def get_template_configs(self):
 		return [
-			dict(type="settings", custom_bindings=False, template="continuousprint_settings.jinja2"),
-			dict(type="tab", custom_bindings=False, template="continuousprint_tab.jinja2")
+			dict(type="settings", custom_bindings=False, template="ProtostheticsContinuousPrint_settings.jinja2"),
+			dict(type="tab", custom_bindings=False, template="ProtostheticsContinuousPrint_tab.jinja2")
 		]
 
 	##~~ AssetPlugin
 	def get_assets(self):
 		return dict(
-			js=["js/continuousprint.js"],
-			css=["css/continuousprint.css"]
+			js=["js/ProtostheticsContinuousPrint.js"],
+			css=["css/ProtostheticsContinuousPrint.css"]
 		)
 
 
@@ -354,7 +354,7 @@ class ContinuousprintPlugin(octoprint.plugin.SettingsPlugin,
 		# for details.
 		return dict(
 			continuousprint=dict(
-				displayName="Continuous Print Plugin",
+				displayName="Protosthetics Continuous Print Plugin",
 				displayVersion=self._plugin_version,
 
 				# version check: github repository
