@@ -21,7 +21,7 @@ plugin_version = "1.0.0"
 plugin_description = """Allows a print to be restarted after it has been completed. Use with a Gcode at the end to sweep the old print off the bed in preparation for the new."""
 
 # The plugin's author. Can be overwritten within OctoPrint's internal data via __plugin_author__ in the plugin module
-plugin_author = "Forked by: Protosthetics Company"
+plugin_author = "Forked by: Protosthetics Company, Originally by Louis Sarwal"
 
 # The plugin's author's mail address.
 plugin_author_email = "zvig@protosthetics.com"
