@@ -6,7 +6,7 @@ import flask, json
 from octoprint.server.util.flask import restricted_access
 from octoprint.events import eventManager, Events
 
-class ContinuousprintPlugin(octoprint.plugin.SettingsPlugin,
+class ProtostheticsContinuousPrint(octoprint.plugin.SettingsPlugin,
 							octoprint.plugin.TemplatePlugin,
 							octoprint.plugin.AssetPlugin,
 							octoprint.plugin.StartupPlugin,
@@ -353,14 +353,14 @@ class ContinuousprintPlugin(octoprint.plugin.SettingsPlugin,
 		# Plugin here. See https://docs.octoprint.org/en/master/bundledplugins/softwareupdate.html
 		# for details.
 		return dict(
-			continuousprint=dict(
+			ProtostheticsContinuousPrint=dict(
 				displayName="Protosthetics Continuous Print Plugin",
 				displayVersion=self._plugin_version,
 
 				# version check: github repository
 				type="github_release",
 				user="zachvig",
-				repo="protostheticscontinuousprint",
+				repo="ProtostheticsContinuousPrint",
 				current=self._plugin_version,
 				stable_branch=dict(
 				    name="Stable", branch="master", comittish=["master"]
@@ -373,7 +373,7 @@ class ContinuousprintPlugin(octoprint.plugin.SettingsPlugin,
 				    )
 				],
 				# update method: pip
-				pip="https://github.com/zachvig/protostheticscontinuousprint/archive/{target_version}.zip"
+				pip="https://github.com/zachvig/ProtostheticsContinuousPrint/archive/{target_version}.zip"
 			)
 		)
 
@@ -383,7 +383,7 @@ __plugin_pythoncompat__ = ">=2.7,<4" # python 2 and 3
 
 def __plugin_load__():
 	global __plugin_implementation__
-	__plugin_implementation__ = ContinuousprintPlugin()
+	__plugin_implementation__ = ProtostheticsContinuousPrint()
 
 	global __plugin_hooks__
 	__plugin_hooks__ = {
